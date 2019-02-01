@@ -6,29 +6,29 @@ using System.Text;
 namespace DbreezeAdapter
 {
     /// <summary>
-    /// Represent a Bson Value used in BsonDocument
+    /// Represent a Dbreeze Value
     /// </summary>
     public class DbreezeValue : IComparable<DbreezeValue>, IEquatable<DbreezeValue>
     {
         public static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         /// <summary>
-        /// Represent a Null bson type
+        /// Represent a Null dbreeze type
         /// </summary>
         public static readonly DbreezeValue Null = new DbreezeValue();
 
         /// <summary>
-        /// Represent a MinValue bson type
+        /// Represent a MinValue dbreeze type
         /// </summary>
         public static readonly DbreezeValue MinValue = new DbreezeValue { Type = DbreezeType.MinValue, RawValue = "-oo" };
 
         /// <summary>
-        /// Represent a MaxValue bson type
+        /// Represent a MaxValue dbreeze type
         /// </summary>
         public static readonly DbreezeValue MaxValue = new DbreezeValue { Type = DbreezeType.MaxValue, RawValue = "+oo" };
 
         /// <summary>
-        /// Indicate BsonType of this BsonValue
+        /// Indicate dbreezeType of this dbreezeValue
         /// </summary>
         public DbreezeType Type { get; private set; }
 
@@ -37,11 +37,7 @@ namespace DbreezeAdapter
         /// </summary>
         public virtual object RawValue { get; private set; }
 
-        /// <summary>
-        /// Internal destroy method. Works only when used with BsonExpression
-        /// </summary>
-        internal Action Destroy = () => { };
-
+        
         #region Constructor
 
         public DbreezeValue()
@@ -458,7 +454,7 @@ namespace DbreezeAdapter
 
         #endregion
 
-        #region IComparable<BsonValue>, IEquatable<BsonValue>
+        #region IComparable<dbreezeValue>, IEquatable<dbreezeValue>
 
         public virtual int CompareTo(DbreezeValue other)
         {
@@ -566,7 +562,7 @@ namespace DbreezeAdapter
         internal int? Length = null;
 
         /// <summary>
-        /// Returns how many bytes this BsonValue will use to persist in index writes
+        /// Returns how many bytes this dbreezeValue will use to persist in index writes
         /// </summary>
         public int GetBytesCount(bool recalc)
         {
