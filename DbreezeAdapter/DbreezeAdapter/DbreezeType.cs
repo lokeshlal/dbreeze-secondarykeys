@@ -4,9 +4,6 @@ using System.Text;
 
 namespace DbreezeAdapter
 {
-    /// <summary>
-    /// All supported BsonTypes in sort order
-    /// </summary>
     public enum DbreezeType
     {
         MinValue = 0,
